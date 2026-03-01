@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vmj88xasedcg" path="res://Scripts/energy.gd" id="1_ydmd1"]
 [ext_resource type="Texture2D" uid="uid://b2gpp54co3pdl" path="res://Assets/pixil-frame-0 (2).png" id="2_ydmd1"]
+[ext_resource type="AudioStream" uid="uid://cdv4x70mqwed3" path="res://Assets/energy.ogg" id="3_77wfg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8a2u1"]
 radius = 24.0
@@ -44,6 +45,15 @@ _data = {
 &"RESET": SubResource("Animation_77wfg")
 }
 
+[sub_resource type="Gradient" id="Gradient_ydmd1"]
+offsets = PackedFloat32Array(0, 0.62781954)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_77wfg"]
+gradient = SubResource("Gradient_ydmd1")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Energy" type="Area2D" unique_id=1612769261 groups=["Energies"]]
 script = ExtResource("1_ydmd1")
 
@@ -57,5 +67,12 @@ texture = ExtResource("2_ydmd1")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2011578815]
 libraries/ = SubResource("AnimationLibrary_7spd5")
 autoplay = &"Float"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=457230153]
+energy = 0.5
+texture = SubResource("GradientTexture2D_77wfg")
+
+[node name="Energysound" type="AudioStreamPlayer2D" parent="." unique_id=203760354]
+stream = ExtResource("3_77wfg")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

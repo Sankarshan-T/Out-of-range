@@ -11,3 +11,7 @@ func navigate_to_level(path: String) -> void:
 		return
 		
 	get_tree().call_deferred("change_scene_to_file", path)
+
+
+func _on_story_pressed() -> void:
+	Dialogic.start("story")

@@ -1,0 +1,5 @@
+Congratulations! Enough energy points collected.
+You've managed to power the elevator back on! You've survived the darkness and the harsh air underground and have made it back to Platform 0—Ground Floor.
+You won! Will you go on this adventure again?
+[signal arg="res://Scenes/Main Menu.tscn"]
+[end_timeline]s

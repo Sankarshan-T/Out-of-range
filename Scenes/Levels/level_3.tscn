@@ -261,18 +261,18 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_4dpyx")
 
-[sub_resource type="Gradient" id="Gradient_cyadu"]
+[sub_resource type="Gradient" id="Gradient_4ahh4"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xgxfi"]
-gradient = SubResource("Gradient_cyadu")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dl55b"]
+gradient = SubResource("Gradient_4ahh4")
 width = 320
 height = 320
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.83931625, 0.23418804)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3mqfk"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_osqx1"]
 texture = ExtResource("4_x1k1j")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -289,12 +289,12 @@ texture_region_size = Vector2i(32, 32)
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
-[sub_resource type="TileSet" id="TileSet_iixi8"]
+[sub_resource type="TileSet" id="TileSet_sy7oa"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_3mqfk")
+sources/0 = SubResource("TileSetAtlasSource_osqx1")
 
-[node name="Level 1" type="Node2D" unique_id=202807563]
+[node name="Level 3" type="Node2D" unique_id=202807563]
 script = ExtResource("1_rc141")
 
 [node name="BG" type="TileMapLayer" parent="." unique_id=98274542]
@@ -321,12 +321,12 @@ limit_bottom = 645
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1127171072]
 energy = 1.2
-texture = SubResource("GradientTexture2D_xgxfi")
+texture = SubResource("GradientTexture2D_dl55b")
 
 [node name="Decor" type="TileMapLayer" parent="." unique_id=23475921]
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAXAAkAAAACAAEAAAAYAP3/AAABAAAAAAAFAAUAAAAAAAAAAAAdAPj/AAAAAAAAAAA=")
-tile_set = SubResource("TileSet_iixi8")
+tile_set = SubResource("TileSet_sy7oa")
 
 [node name="Energies" type="Node" parent="." unique_id=1087441919]
 

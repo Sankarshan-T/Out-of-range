@@ -294,7 +294,7 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_3mqfk")
 
-[node name="Level 1" type="Node2D" unique_id=202807563]
+[node name="Level 2" type="Node2D" unique_id=202807563]
 script = ExtResource("1_ovj6s")
 
 [node name="BG" type="TileMapLayer" parent="." unique_id=98274542]

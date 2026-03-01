@@ -111,3 +111,4 @@ region_rect = Rect2(24, 24, 56, 72)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=950354114]
 libraries/ = SubResource("AnimationLibrary_dewec")
+speed_scale = 2.0

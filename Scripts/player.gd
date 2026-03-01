@@ -12,10 +12,6 @@ const JUMP_VELOCITY = -500.0
 @export var next_level: PackedScene 
 
 var is_frozen = false
-var collected_energies = 0
-var total_energies: int
-
-var  collected_energy = 0
 
 func _physics_process(delta):
 	if is_frozen:
@@ -25,9 +21,8 @@ func _physics_process(delta):
 		move_and_slide()
 		anim.play("Idle")
 		return
-	update_display_energies()
-	
-	total_energies = get_tree().get_nodes_in_group("Energies").size()
+		
+	var total_energies = get_tree().get_nodes_in_group("Energies").size()
 		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -42,7 +37,14 @@ func _physics_process(delta):
 		sprite.flip_h = (direction < 0)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * delta * 10)
+	
+	var label = get_tree().current_scene.find_child("Label", true, false)
 
+	if label:
+		label.text = str(total_energies) + " to collect"
+	else:
+		print("Warning: Could not find Label")
+		
 	move_and_slide()
 	update_animations(direction)
 
@@ -61,9 +63,9 @@ func _on_energy_collected():
 	
 	canvas_modulate.color = Color(new_r, new_g, new_b)
 	point_light_2d.scale *= 1.1
-	collected_energies += 1
 	
 	if get_tree().get_nodes_in_group("Energies").size() < 1:
+		await get_tree().create_timer(1.0).timeout
 		play_end_of_level()
 
 func play_end_of_level():
@@ -79,7 +81,3 @@ func play_end_of_level():
 		get_tree().change_scene_to_packed(next_level)
 	else:
 		print("drag next level into the Inspector!")
-
-func update_display_energies():
-	var label = get_parent().get_node("EnergiesCollected/Panel/Label")
-	label.text = str(total_energies) + " to collect"

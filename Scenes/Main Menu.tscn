@@ -110,8 +110,8 @@ layout_mode = 0
 offset_right = 192.0
 offset_bottom = 64.0
 theme_override_fonts/font = ExtResource("3_ur25d")
-theme_override_font_sizes/font_size = 36
-text = "STORY"
+theme_override_font_sizes/font_size = 20
+text = "INSTRUCTIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -120,7 +120,8 @@ position = Vector2(888, 324)
 scale = Vector2(1.5348841, 1.9285715)
 sprite_frames = SubResource("SpriteFrames_tbdrc")
 autoplay = "default"
-frame_progress = 0.15617622
+frame = 2
+frame_progress = 0.42072448
 
 [node name="Label" type="Label" parent="." unique_id=2118698953]
 layout_mode = 0
@@ -133,3 +134,4 @@ theme_override_font_sizes/font_size = 73
 text = "Out Of Range"
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Story" to="." method="_on_story_pressed"]
