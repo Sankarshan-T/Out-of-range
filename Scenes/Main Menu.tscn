@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://cyk7yih3topxb"]
+
+[ext_resource type="Texture2D" uid="uid://dp0ciq4kmjhi" path="res://Assets/Extra/Default/button_rectangle_depth.png" id="1_hcxxy"]
+[ext_resource type="Script" uid="uid://br64qb24pgrhu" path="res://Scripts/Level_Manager.gd" id="1_mjet1"]
+[ext_resource type="Texture2D" uid="uid://dubo4u2y0aq1i" path="res://Assets/Extra/Default/button_rectangle.png" id="2_ur25d"]
+[ext_resource type="FontFile" uid="uid://bydlm52sfyviy" path="res://Assets/Retro Gaming.ttf" id="3_ur25d"]
+[ext_resource type="Texture2D" uid="uid://cxjbkn67bmtae" path="res://Assets/sprites2/elevator .png" id="5_udm2q"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mjet1"]
+load_path = "res://.godot/imported/bg-basement.png-2d9e19c6f1c4d63cc3b3c50cd4708475.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjet1"]
+atlas = ExtResource("5_udm2q")
+region = Rect2(1376, 0, 344, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0126h"]
+atlas = ExtResource("5_udm2q")
+region = Rect2(1032, 0, 344, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lp62"]
+atlas = ExtResource("5_udm2q")
+region = Rect2(688, 0, 344, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vewo"]
+atlas = ExtResource("5_udm2q")
+region = Rect2(344, 0, 344, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wib81"]
+atlas = ExtResource("5_udm2q")
+region = Rect2(0, 0, 344, 336)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tbdrc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjet1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0126h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lp62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vewo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wib81")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Main Menu" type="Control" unique_id=94402906]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 31.0
+offset_bottom = 34.0
+script = ExtResource("1_mjet1")
+
+[node name="BgBasement" type="Sprite2D" parent="." unique_id=1848325972]
+modulate = Color(0.32024416, 0.32024416, 0.32024413, 1)
+position = Vector2(576, 326)
+scale = Vector2(9, 8.944445)
+texture = SubResource("CompressedTexture2D_mjet1")
+
+[node name="Start" type="TextureButton" parent="." unique_id=1052977693]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 224.0
+offset_right = 324.0
+offset_bottom = 288.0
+scale = Vector2(2, 2)
+tooltip_text = "Start"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_hcxxy")
+texture_pressed = ExtResource("2_ur25d")
+stretch_mode = 0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Start" unique_id=1939514082]
+modulate = Color(0.018077714, 0.043124974, 0.040771283, 1)
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("3_ur25d")
+theme_override_font_sizes/font_size = 36
+text = "START"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Story" type="TextureButton" parent="." unique_id=321037378]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 440.0
+offset_right = 324.0
+offset_bottom = 504.0
+scale = Vector2(2, 2)
+tooltip_text = "Start"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_hcxxy")
+texture_pressed = ExtResource("2_ur25d")
+stretch_mode = 0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Story" unique_id=1680355038]
+modulate = Color(0.018077714, 0.043124974, 0.040771283, 1)
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("3_ur25d")
+theme_override_font_sizes/font_size = 36
+text = "STORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=287839442]
+position = Vector2(888, 324)
+scale = Vector2(1.5348841, 1.9285715)
+sprite_frames = SubResource("SpriteFrames_tbdrc")
+autoplay = "default"
+frame_progress = 0.15617622
+
+[node name="Label" type="Label" parent="." unique_id=2118698953]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 88.0
+offset_right = 614.0
+offset_bottom = 181.0
+theme_override_fonts/font = ExtResource("3_ur25d")
+theme_override_font_sizes/font_size = 73
+text = "Out Of Range"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

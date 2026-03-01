@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dbbl2asv14rby"]
+
+[ext_resource type="Script" uid="uid://vmj88xasedcg" path="res://Scripts/energy.gd" id="1_ydmd1"]
+[ext_resource type="Texture2D" uid="uid://b2gpp54co3pdl" path="res://Assets/pixil-frame-0 (2).png" id="2_ydmd1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8a2u1"]
+radius = 24.0
+
+[sub_resource type="Animation" id="Animation_ydmd1"]
+resource_name = "Float"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Energysprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -8.000001), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_77wfg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Energysprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7spd5"]
+_data = {
+&"Float": SubResource("Animation_ydmd1"),
+&"RESET": SubResource("Animation_77wfg")
+}
+
+[node name="Energy" type="Area2D" unique_id=1612769261 groups=["Energies"]]
+script = ExtResource("1_ydmd1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1723148857]
+shape = SubResource("CircleShape2D_8a2u1")
+
+[node name="Energysprite" type="Sprite2D" parent="." unique_id=707761179]
+scale = Vector2(1.7045454, 1.590909)
+texture = ExtResource("2_ydmd1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2011578815]
+libraries/ = SubResource("AnimationLibrary_7spd5")
+autoplay = &"Float"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

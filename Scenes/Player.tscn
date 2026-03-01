@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://bpoht4ee4uduw"]
+
+[ext_resource type="Script" uid="uid://cbt3lafpef1hc" path="res://Scripts/player.gd" id="1_kyqiw"]
+[ext_resource type="Texture2D" uid="uid://s4cgdadgpkmv" path="res://Assets/sprites2/IDLE.png" id="1_rpqav"]
+[ext_resource type="Texture2D" uid="uid://c1elh10avar5x" path="res://Assets/sprites2/RUN.png" id="3_gntrk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_megsn"]
+radius = 30.016663
+
+[sub_resource type="Animation" id="Animation_kyqiw"]
+resource_name = "Idle"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(28, 30, 49, 60), Rect2(176, 30, 49, 60), Rect2(324, 32, 49, 58), Rect2(473, 32, 48, 58), Rect2(620, 32, 49, 58), Rect2(768, 32, 49, 58)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_rpqav")]
+}
+
+[sub_resource type="Animation" id="Animation_gntrk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(24, 24, 56, 72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_gntrk")]
+}
+
+[sub_resource type="Animation" id="Animation_dewec"]
+resource_name = "Run"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(24, 34, 55, 56), Rect2(181, 34, 46, 56), Rect2(321, 32, 56, 57), Rect2(462, 31, 64, 59), Rect2(626, 34, 47, 56), Rect2(768, 33, 50, 57), Rect2(906, 31, 60, 56), Rect2(1059, 32, 55, 58)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_gntrk")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dewec"]
+_data = {
+&"Idle": SubResource("Animation_kyqiw"),
+&"RESET": SubResource("Animation_gntrk"),
+&"Run": SubResource("Animation_dewec")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=203771723]
+script = ExtResource("1_kyqiw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=865111057]
+shape = SubResource("CircleShape2D_megsn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=761680688]
+texture = ExtResource("3_gntrk")
+region_enabled = true
+region_rect = Rect2(24, 24, 56, 72)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=950354114]
+libraries/ = SubResource("AnimationLibrary_dewec")
