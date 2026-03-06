@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bnmphrry2u17k" path="res://Scenes/Levels/level_4.tscn" id="4_167vu"]
 [ext_resource type="Texture2D" uid="uid://cbfls8qektflx" path="res://Assets/Laboratory/Decor/full decor tiles.png" id="4_x1k1j"]
 [ext_resource type="PackedScene" uid="uid://dbbl2asv14rby" path="res://Scenes/Energy.tscn" id="5_4ahh4"]
-[ext_resource type="PackedScene" uid="uid://cphdbhlu23ysx" path="res://Scenes/energies_collected.tscn" id="6_yy6i0"]
+[ext_resource type="PackedScene" uid="uid://cphdbhlu23ysx" path="res://Scenes/UI.tscn" id="6_yy6i0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dpyx"]
 texture = ExtResource("2_yy6i0")
@@ -296,6 +296,9 @@ sources/0 = SubResource("TileSetAtlasSource_osqx1")
 
 [node name="Level 3" type="Node2D" unique_id=202807563]
 script = ExtResource("1_rc141")
+level_no = 3
+next_level = ExtResource("4_167vu")
+level_timeline = "tolevel4"
 
 [node name="BG" type="TileMapLayer" parent="." unique_id=98274542]
 scale = Vector2(2, 2)
@@ -309,8 +312,6 @@ tile_set = SubResource("TileSet_3mqfk")
 
 [node name="Player" parent="." unique_id=203771723 instance=ExtResource("3_167vu")]
 position = Vector2(72, 592)
-level_timeline = "tolevel4"
-next_level = ExtResource("4_167vu")
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1927151196]
